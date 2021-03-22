@@ -7,7 +7,7 @@ import java.util.HashMap;
 public interface Activity {
     HashMap<String, String> getBooksAvailable();
 
-    HashMap<String, String> getBooksRented();
+    HashMap<String, String> getSoldBooks();
 
     ArrayList<Book> getListOfBooks();
 

@@ -15,7 +15,7 @@ public class Shelf extends BookStore implements Activity{
     private HashMap<String, String> booksAvailable = new HashMap<>();
 
     //# Feature: HashMap
-    private HashMap<String, String> rentedBooks = new HashMap<>();
+    private HashMap<String, String> soldBooks = new HashMap<>();
 
     private WriteToFile writeToFile;
 
@@ -53,15 +53,15 @@ public class Shelf extends BookStore implements Activity{
 
     //# Feature: Overriding
     @Override
-    public HashMap<String, String> getBooksRented() {
-        HashMap<String, String> rentedBooks = new HashMap<>();
+    public HashMap<String, String> getSoldBooks() {
+        HashMap<String, String> soldBooks = new HashMap<>();
 
         for (Book book :  getListOfBooks()){
             if (book.isAvailable() == false)
-                rentedBooks.put(book.getTitle(), book.getAuthor());
+                soldBooks.put(book.getTitle(), book.getAuthor());
         }
-        this.rentedBooks = rentedBooks;
-        return rentedBooks;
+        this.soldBooks = soldBooks;
+        return soldBooks;
     }
 
     //# Feature: Overriding
@@ -79,13 +79,13 @@ public class Shelf extends BookStore implements Activity{
         }
     }
 
-    void printBooksRented(){
+    void printSoldBooks(){
 
-        HashMap<String, String> booksRented = getBooksRented();
+        HashMap<String, String> soldBooks = getSoldBooks();
 
-        System.out.println("Rented Books:\n");
+        System.out.println("Sold Books:\n");
 
-        for (Map.Entry<String, String> book: booksRented.entrySet()){
+        for (Map.Entry<String, String> book: soldBooks.entrySet()){
             System.out.println("Book: "+book.getKey() + "\n" + "Author: " + book.getValue());
             System.out.println("--------------------");
         }

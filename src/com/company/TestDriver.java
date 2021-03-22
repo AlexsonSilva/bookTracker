@@ -27,7 +27,7 @@ public class TestDriver {
 
         shelf.printBooks();
 
-        shelf.printBooksRented();
+        shelf.printSoldBooks();
 
         shelf.printBooksAvailable();
 
